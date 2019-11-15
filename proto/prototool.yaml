@@ -1,0 +1,30 @@
+protoc:
+    version: 3.9.1
+
+lint:
+    group: uber2
+    rules:
+      add:
+        - RPCS_NO_STREAMING
+      remove:
+        - FILE_OPTIONS_REQUIRE_CSHARP_NAMESPACE
+        - FILE_OPTIONS_REQUIRE_OBJC_CLASS_PREFIX
+        - FILE_OPTIONS_REQUIRE_PHP_NAMESPACE
+        - FILE_OPTIONS_EQUAL_GO_PACKAGE_V2_SUFFIX
+        - FILE_OPTIONS_EQUAL_JAVA_PACKAGE_PREFIX
+
+generate:
+  plugins:
+    - name: js
+      output: ../gen/js
+      flags: import_style=commonjs,binary
+    - name: twirp_js
+      output: ../gen/js
+    - name: ruby
+      output: ../gen/ruby
+    - name: twirp_ruby
+      output: ../gen/ruby
+    - name: go
+      output: ../gen/go
+    - name: twirp
+      output: ../gen/go

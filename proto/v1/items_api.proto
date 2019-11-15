@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package company.example.v1;
+
+option go_package = "example/v1";
+option java_multiple_files = true;
+option java_outer_classname = "ItemsApiProto";
+option java_package = "com.company.example.v1";
+option ruby_package = "Example::V1";
+
+// ItemsAPI provides access to item data.
+service ItemsAPI {
+  // FindItem provides an example item.
+  rpc FindItem(FindItemRequest) returns (FindItemResponse);
+}
+
+message FindItemRequest {
+  // id is the ID of the item. (required)
+  uint64 id = 1;
+}
+
+message FindItemResponse {
+  // id is the ID of the item. (required)
+  uint64 id = 1;
+  // name is the name of the item, if any.
+  string name = 2;
+}
